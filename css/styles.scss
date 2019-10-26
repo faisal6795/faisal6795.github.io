@@ -3,7 +3,7 @@ body {
 	background-color: #100e17;
 	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
-	transition: 0.3s;
+	transition: all 0.3s ease;
 	user-select: none;
 }
 
@@ -62,6 +62,7 @@ section {
 
 #portfolio {
 	min-width: 360px;
+	transition: all 0.5s ease;
 }
 
 /* ---------------------navbar----------------- */
@@ -89,7 +90,7 @@ section {
 				background-color: #2196f3;
 				z-index: 4;
 				left: -250px;
-				transition: left 0.5s;
+				transition: left 0.5s ease;
 
 				&.nav-open {
 					left: 0;
@@ -163,7 +164,7 @@ section {
 					height: 2px;
 					background-color: #fff;
 					border-radius: 2px;
-					transition: background-color 0.5s;
+					transition: background-color 0.5s ease;
 
 					&::before,
 					&::after {
@@ -177,7 +178,7 @@ section {
 						vertical-align: middle;
 						background-color: #fff;
 						border-radius: 2px;
-						transition: top 0.5s, transform 0.5s;
+						transition: all 0.5s ease;
 					}
 
 					&::before {
@@ -201,6 +202,7 @@ section {
 	background-color: #202026;
 	z-index: 1;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	transition: all 0.5s ease;
 
 	button {
 		display: none;
@@ -420,6 +422,7 @@ section {
 			border-radius: 50%;
 			box-sizing: border-box;
 			display: inline-block;
+			transition: border 0.5s ease;
 
 			.image {
 				border-radius: 50%;
@@ -430,6 +433,7 @@ section {
 				max-height: 350px;
 				display: block;
 				box-sizing: border-box;
+				transition: border 0.5s ease;
 
 				@media screen and (min-width: 768px) and (max-width: 850px) {
 					max-width: 300px;
@@ -500,7 +504,7 @@ section {
 	.download-btn {
 		margin-top: 20px;
 
-		button {
+		a {
 			padding: 12px 30px;
 			background-color: #2196f3;
 			border-radius: 20px;
@@ -537,6 +541,7 @@ section {
 		box-sizing: border-box;
 		background-color: #202026;
 		box-shadow: -7px 7px 20px #000;
+		transition: background-color 0.5s ease, box-shadow 0.5s ease;
 
 		&:not(:last-child) {
 			margin-right: 15px;
@@ -649,7 +654,41 @@ section {
 		border-radius: 50%;
 		position: relative;
 
-		&:before {
+		@keyframes rotating {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.fill {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			clip: rect(0, 50px, 100px, 0);
+			background: red;
+			left: 0;
+			top: 0;
+			border-radius: 50%;
+			transform: rotate(0deg);
+			backface-visibility: hidden;
+			animation: rotating 2s linear infinite;
+		}
+
+		.mask {
+			position: absolute;
+			clip: rect(0, 100px, 100px, 50px);
+			background-color: #7d7d80;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			border-radius: 50%;
+		}
+
+		&:after {
 			content: "";
 			width: 88px;
 			height: 88px;
@@ -660,6 +699,7 @@ section {
 			transform: translate(-50%, -50%);
 			background-color: #100e17;
 			border-radius: 50%;
+			transition: background-color 0.5s ease;
 		}
 	}
 
@@ -671,6 +711,7 @@ section {
 			position: relative;
 			font-size: 16px;
 			font-weight: bold;
+			z-index: 1;
 		}
 
 		.name {
@@ -735,6 +776,7 @@ section {
 		font-size: 14px;
 		font-weight: bold;
 		border-radius: 4px;
+		transition: background-color 0.5s ease, box-shadow 0.5s ease;
 	}
 
 	.education-name {
@@ -941,6 +983,7 @@ section {
 			box-sizing: border-box;
 			box-shadow: -1rem 0 3rem #000;
 			background-color: #202026;
+			transition: background-color 0.5s ease, box-shadow 0.5s ease;
 
 			.card-icon {
 				width: 100px;
@@ -959,6 +1002,7 @@ section {
 					top: 50%;
 					left: 50%;
 					position: absolute;
+					transition: background-image 0.5s ease;
 				}
 			}
 
@@ -1033,10 +1077,9 @@ section {
 		}
 
 		.submit-msg {
-			margin-top: 20px;
+			padding: 0;
 			font-size: 22px;
 			line-height: 30px;
-			margin-bottom: 30px;
 			text-align: center;
 			font-weight: bold;
 			color: #dc3545;
@@ -1055,7 +1098,6 @@ section {
 			border: 0;
 			color: #fff;
 			cursor: pointer;
-			opacity: 0.65;
 			background-color: #2196f3;
 		}
 
@@ -1105,7 +1147,7 @@ section {
 		}
 
 		.social-media {
-			padding-left: 8px;
+			padding-left: 22px;
 
 			li {
 				width: 16px;
@@ -1147,7 +1189,7 @@ section {
 }
 
 .download {
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA1klEQVRIS+3VMQrCQBCF4f8V1lpaiF5CsNHSztLO89lZ2lhrKd5BsbASbzASQUk2ye4mSkBIumRn37eEmUR4LjObAntfDTCTdCirUQu0r+iPusjMlsDYadsBsArMwRq4OjVHSZvk2WcOzKwL7IBJIDC0fALmku4ZILn5AZIJzwFfIrnwQqAmUhheClRESsO9QCTiDQ8CASQYHgWUIFHh0YCDdNJ9HhoK7w/H3WxmvdeppEco+L1eCYgNTdc1B5jZFujXOWXBnpukhfuxOwPDHwEXSaNGgCctEncZPQQibwAAAABJRU5ErkJggg==");
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfjChEQLwduT+VpAAAAoElEQVRIx+3UMQ6CQBBG4bdEOw5AQSEJpcfwLJYexpKeG9FBQssdLMZCQ1AG2FksJOHvdrPvKxeUSSnaSu1txMrtwA78BHAAcuROPrg9kyhvO6rBqeHmHv1JUqnFslZOX7yJGOcmQs+9ienci5jPF4nlfJbwyycJ/1wlbPmIsOcfRFjeE+H5m0hX5NvY60PJKALaq2vhAEDMJQCI4R8+1SfdJHFEo1hA1gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0xMC0xN1QxNjo0NzowNyswMDowMGFifaEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMTAtMTdUMTY6NDc6MDcrMDA6MDAQP8UdAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==");
 }
 
 .insta {

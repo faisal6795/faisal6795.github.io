@@ -71,6 +71,8 @@
             "CSS",
             "Android"
         ],
+        "download_link": "/assets/cv.pdf",
+        "download_text": "Faisal Ansari CV",
         "download_btn": "Download CV",
         "download_icon_class": "icon download"
     },
@@ -217,7 +219,7 @@
         "list_cards": [
             {
                 "name": "Tic Tac Toe",
-                "url": "/tictactoe",
+                "url": "https://faisal6795.github.io/tictactoe",
                 "class_name": "game",
                 "img_class": "tictactoe",
                 "height": "350",
@@ -235,7 +237,7 @@
             },
             {
                 "name": "Snake",
-                "url": "/snake",
+                "url": "https://faisal6795.github.io/snake",
                 "class_name": "game",
                 "img_class": "snake",
                 "height": "300",
@@ -280,6 +282,7 @@
             "Your Message"
         ],
         "error_msg": "Did you fill the form properly?",
+        "success_msg": "Message Sent!",
         "send_btn": "Send Message",
         "copyright": "All rights reserved Faisal Ansari @ 2019",
         "social_icons": [
