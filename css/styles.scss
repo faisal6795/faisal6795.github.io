@@ -70,7 +70,7 @@ section {
 	width: 100%;
 	height: 100vh;
 	z-index: 99;
-	background-color: #100e17;
+	background-color: #fff;
 
 	div {
 		width: 100px;
@@ -612,6 +612,7 @@ section {
 		margin: 0;
 		margin-bottom: 18px;
 		line-height: 32px;
+		height: 65px;
 	}
 
 	.description {
@@ -947,18 +948,49 @@ section {
 
 	.card {
 		margin-bottom: 30px;
-		padding: 26px 30px;
-		background-color: #202020;
-		box-shadow: -7px 7px 20px #000;
 		font-size: 14px;
 		font-weight: bold;
 		border-radius: 4px;
-		transition: background-color 0.5s ease, box-shadow 0.5s ease;
+		background-color: transparent;
+		perspective: 1000px;
+		height: 150px;
+
+		&:hover {
+			.inner-card {
+				transform: rotateY(180deg);
+			}
+		}
+
+		.inner-card {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background-color: #202020;
+			box-shadow: 0px 10px 20px 4px rgba(0, 0, 0, 0.08);
+			transition: background-color 0.5s ease, box-shadow 0.5s ease;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+
+			.card-front,
+			.card-back {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				padding: 26px 30px;
+				box-sizing: border-box;
+				background-color: #202026;
+			}
+
+			.card-back {
+				transform: rotateY(180deg);
+			}
+		}
 	}
 
 	.education-name {
 		font-size: 20px;
 		font-weight: 600;
+		color: $accent-color;
 	}
 
 	.education-from {
@@ -974,7 +1006,7 @@ section {
 
 	.education-from,
 	.year {
-		color: $accent-color;
+		font-size: 19px;
 	}
 
 	.work-name {
@@ -990,11 +1022,13 @@ section {
 	ul,
 	li {
 		list-style: inside;
+		font-size: 16px;
 	}
 
 	#responsibility {
 		margin-bottom: 8px;
 		display: block;
+		font-size: 18px;
 	}
 }
 
@@ -1052,34 +1086,47 @@ section {
 				transition: opacity 0.5s, width 0.5s, height 0.5s;
 			}
 
-			.card-name {
-				visibility: hidden;
-				top: 50%;
-				left: 0;
-				width: 100%;
+			.hover-parent {
 				position: absolute;
-				font-weight: bold;
-			}
+				left: 15px;
+				top: 15px;
+				height: calc(100% - 30px);
+				width: calc(100% - 30px);
+				background-color: rgba(0, 142, 255, 0.8);
+				border-radius: 10px;
+				color: #fff;
+				clip-path: circle(0% at center);
+				transition: clip-path 0.7s ease;
 
-			.card-description {
-				visibility: hidden;
-				display: inline-block;
-				position: absolute;
-				top: calc(50% + 20px);
-				width: 100%;
-				left: 0;
-				font-size: 14px;
-			}
+				.card-name {
+					top: 50%;
+					left: 0;
+					width: 100%;
+					position: absolute;
+					font-weight: bold;
+					pointer-events: none;
+				}
 
-			.card-icon {
-				visibility: hidden;
-				height: 24px;
-				width: 24px;
-				display: inline-block;
-				position: absolute;
-				left: 50%;
-				top: calc(50% - 40px);
-				transform: translateX(-50%);
+				.card-description {
+					display: inline-block;
+					position: absolute;
+					top: calc(50% + 20px);
+					width: 100%;
+					left: 0;
+					font-size: 14px;
+					pointer-events: none;
+				}
+
+				.card-icon {
+					height: 24px;
+					width: 24px;
+					display: inline-block;
+					position: absolute;
+					left: 50%;
+					top: calc(50% - 40px);
+					transform: translateX(-50%);
+					pointer-events: none;
+				}
 			}
 
 			a {
@@ -1108,27 +1155,9 @@ section {
 						background-image: url("../assets/snake.png");
 					}
 				}
-			}
 
-			&:hover {
-				a:after {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					background-color: #008eff;
-					border-radius: 10px;
-					opacity: 0.8;
-					margin: 15px;
-				}
-
-				.card-name,
-				.card-description,
-				.card-icon {
-					pointer-events: none;
-					visibility: visible;
+				&:hover .hover-parent {
+					clip-path: circle(100% at center);
 				}
 			}
 
@@ -1196,7 +1225,11 @@ section {
 			box-sizing: border-box;
 			box-shadow: -1rem 0 3rem #000;
 			background-color: #202026;
-			transition: background-color 0.5s ease, box-shadow 0.5s ease;
+			transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.5s ease;
+
+			&:hover {
+				transform: scale(1.1);
+			}
 
 			.card-icon {
 				width: 100px;
@@ -1505,9 +1538,14 @@ section {
 	}
 
 	#service .card,
-	#experience .card {
+	#experience .card .inner-card {
 		background-color: #fff;
 		box-shadow: 0px 10px 20px 4px rgba(0, 0, 0, 0.08);
+
+		.card-front,
+		.card-back {
+			background-color: #fff;
+		}
 	}
 
 	#skills .professional-container .circle-container .circle:after {
