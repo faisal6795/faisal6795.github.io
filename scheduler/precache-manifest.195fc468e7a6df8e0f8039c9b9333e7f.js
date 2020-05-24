@@ -5,26 +5,26 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "839f5ed44059a3612cff",
-    "url": "./static/css/2.c6231af7.chunk.css"
+    "url": "/scheduler/static/css/2.c6231af7.chunk.css"
   },
   {
     "revision": "533e50f1552264bbcc77",
-    "url": "./static/css/main.82cc635f.chunk.css"
+    "url": "/scheduler/static/css/main.82cc635f.chunk.css"
   },
   {
     "revision": "839f5ed44059a3612cff",
-    "url": "./static/js/2.525f1b30.chunk.js"
+    "url": "/scheduler/static/js/2.525f1b30.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "./static/js/2.525f1b30.chunk.js.LICENSE.txt"
+    "url": "/scheduler/static/js/2.525f1b30.chunk.js.LICENSE.txt"
   },
   {
     "revision": "533e50f1552264bbcc77",
-    "url": "./static/js/main.fe213cd0.chunk.js"
+    "url": "/scheduler/static/js/main.fe213cd0.chunk.js"
   },
   {
     "revision": "af34574360f2e8c45495",
-    "url": "./static/js/runtime-main.916fb653.js"
+    "url": "/scheduler/static/js/runtime-main.916fb653.js"
   }
 ]);
