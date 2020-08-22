@@ -1179,38 +1179,25 @@ var TictactoeComponent = /** @class */ (function () {
     TictactoeComponent.prototype.playAiChance = function () {
         var _this = this;
         if (!this.showPopup) {
-            var blockId_1 = this.getDefaultPosition();
-            if (!this.blockData[0].isActive && ((this.isActive(1) && this.isActive(2)) || (this.isActive(3) && this.isActive(6)) || (this.isActive(4) && this.isActive(8)))) {
-                blockId_1 = 0;
-            }
-            else if (!this.blockData[1].isActive && ((this.isActive(0) && this.isActive(2)) || (this.isActive(4) && this.isActive(7)))) {
-                blockId_1 = 1;
-            }
-            else if (!this.blockData[2].isActive && ((this.isActive(1) && this.isActive(0)) || (this.isActive(4) && this.isActive(6)) || (this.isActive(5) && this.isActive(8)))) {
-                blockId_1 = 2;
-            }
-            else if (!this.blockData[3].isActive && ((this.isActive(0) && this.isActive(6)) || (this.isActive(4) && this.isActive(5)))) {
-                blockId_1 = 3;
-            }
-            else if (!this.blockData[4].isActive && ((this.isActive(6) && this.isActive(2)) || (this.isActive(3) && this.isActive(5)) || (this.isActive(1) && this.isActive(7)))) {
-                blockId_1 = 4;
-            }
-            else if (!this.blockData[5].isActive && ((this.isActive(8) && this.isActive(2)) || (this.isActive(3) && this.isActive(4)))) {
-                blockId_1 = 5;
-            }
-            else if (!this.blockData[6].isActive && ((this.isActive(7) && this.isActive(8)) || (this.isActive(3) && this.isActive(0)) || (this.isActive(4) && this.isActive(2)))) {
-                blockId_1 = 6;
-            }
-            else if (!this.blockData[7].isActive && ((this.isActive(1) && this.isActive(4)) || (this.isActive(6) && this.isActive(8)))) {
-                blockId_1 = 7;
-            }
-            else if (!this.blockData[8].isActive && ((this.isActive(6) && this.isActive(7)) || (this.isActive(2) && this.isActive(5)) || (this.isActive(4) && this.isActive(0)))) {
-                blockId_1 = 8;
-            }
-            setTimeout(function () {
-                _this.playChance(blockId_1);
-            }, 200);
+            var winningPattern = [
+                [[1, 2], [3, 6], [4, 8]],
+                [[0, 2], [4, 7]],
+                [[1, 0], [4, 6], [5, 8]],
+                [[0, 6], [4, 5]],
+                [[6, 2], [3, 5], [1, 7], [0, 8]],
+                [[8, 2], [3, 4]],
+                [[7, 8], [3, 0], [4, 2]],
+                [[1, 4], [6, 8]],
+                [[6, 7], [2, 5], [4, 0]]
+            ];
+            var pattern = winningPattern.findIndex(function (item, index) { return _this.checkForActive(index, item); });
+            var blockId_1 = pattern > -1 ? pattern : this.getDefaultPosition();
+            setTimeout(function () { _this.playChance(blockId_1); }, 200);
         }
+    };
+    TictactoeComponent.prototype.checkForActive = function (selectedBlock, blocksToCheck) {
+        var _this = this;
+        return !this.blockData[selectedBlock].isActive && blocksToCheck.some(function (block) { return block.every(function (item) { return _this.isActive(item); }); });
     };
     TictactoeComponent.prototype.getDefaultPosition = function () {
         var _a;
