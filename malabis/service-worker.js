@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/malabis/precache-manifest.f1f690b414797a0bb9fd13a82d750452.js"
+  "/malabis/precache-manifest.0118d09ba5921c9c514a1a927255e8e1.js"
 );
 
 self.addEventListener('message', (event) => {
