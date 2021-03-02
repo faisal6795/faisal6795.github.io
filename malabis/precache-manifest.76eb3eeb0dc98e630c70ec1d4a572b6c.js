@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "753ed9820c3050c968e9dee0ecb508ea",
+    "revision": "eadb1b6b041caaac7ed13a683cec9411",
     "url": "/malabis/index.html"
   },
   {
-    "revision": "e0fb119b51871a7edf7e",
+    "revision": "a476177f021785c77780",
     "url": "/malabis/static/css/2.03fe9875.chunk.css"
   },
   {
-    "revision": "96c722c9cf71ec9d3029",
+    "revision": "2c8123b1752a03fc776f",
     "url": "/malabis/static/css/main.7041627b.chunk.css"
   },
   {
-    "revision": "e0fb119b51871a7edf7e",
-    "url": "/malabis/static/js/2.ccd78497.chunk.js"
+    "revision": "a476177f021785c77780",
+    "url": "/malabis/static/js/2.6acdf1b5.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/malabis/static/js/2.ccd78497.chunk.js.LICENSE.txt"
+    "url": "/malabis/static/js/2.6acdf1b5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "96c722c9cf71ec9d3029",
-    "url": "/malabis/static/js/main.5b4ae0f7.chunk.js"
+    "revision": "2c8123b1752a03fc776f",
+    "url": "/malabis/static/js/main.00a39832.chunk.js"
   },
   {
     "revision": "53a1430a63a80614fb5c",
